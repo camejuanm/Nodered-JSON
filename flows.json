@@ -1,0 +1,391 @@
+[
+    {
+        "id": "4b3796def9e13abf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "319b6ad0cbb486cb",
+        "type": "ui_gauge",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "group": "f28d784b08cb513b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temp Gauge",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 450,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d8f5ca82312df556",
+        "type": "mqtt in",
+        "z": "4b3796def9e13abf",
+        "name": "Temperature",
+        "topic": "node1/dht22/temperature",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "186186f1b2627007",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "319b6ad0cbb486cb",
+                "7f1f5d03d59cb815",
+                "e9ae87b5e7c7b43c"
+            ]
+        ]
+    },
+    {
+        "id": "011ea2d90ff70167",
+        "type": "mqtt in",
+        "z": "4b3796def9e13abf",
+        "name": "Humidity",
+        "topic": "node1/dht22/humidity",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "186186f1b2627007",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "840759750484122e",
+                "6acb88a0aff7da37",
+                "9f7de6e30f5fd530"
+            ]
+        ]
+    },
+    {
+        "id": "840759750484122e",
+        "type": "ui_gauge",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "group": "4ed306b78b087b1c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Gauge",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 380,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6acb88a0aff7da37",
+        "type": "ui_chart",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "group": "4ed306b78b087b1c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "40",
+        "ymax": "80",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 440,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f1f5d03d59cb815",
+        "type": "ui_chart",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "group": "f28d784b08cb513b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "65",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "79d8e22b7e0b259e",
+        "type": "debug",
+        "z": "4b3796def9e13abf",
+        "name": "output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e9ae87b5e7c7b43c",
+        "type": "string",
+        "z": "4b3796def9e13abf",
+        "name": "Temp JSONify",
+        "methods": [
+            {
+                "name": "prepend",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "{\"temp\":"
+                    }
+                ]
+            },
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "}"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "20ab4c240f5ebd44"
+            ]
+        ]
+    },
+    {
+        "id": "20ab4c240f5ebd44",
+        "type": "json",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "75b5f88421db156c"
+            ]
+        ]
+    },
+    {
+        "id": "9f7de6e30f5fd530",
+        "type": "string",
+        "z": "4b3796def9e13abf",
+        "name": "Hum JSONify",
+        "methods": [
+            {
+                "name": "prepend",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "{\"humidity\":"
+                    }
+                ]
+            },
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "}"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "20ab4c240f5ebd44"
+            ]
+        ]
+    },
+    {
+        "id": "75b5f88421db156c",
+        "type": "join",
+        "z": "4b3796def9e13abf",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "5",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "79d8e22b7e0b259e"
+            ]
+        ]
+    },
+    {
+        "id": "f28d784b08cb513b",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "065c88c9f4ae4d1a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "186186f1b2627007",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4ed306b78b087b1c",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "065c88c9f4ae4d1a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "065c88c9f4ae4d1a",
+        "type": "ui_tab",
+        "name": "Room",
+        "icon": "toys",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
